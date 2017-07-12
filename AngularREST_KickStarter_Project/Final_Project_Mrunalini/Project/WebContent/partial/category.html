@@ -1,0 +1,15 @@
+<div class="page-header" ng-init="categoryCtrl.init()">
+	{{categoryCtrl.message}}
+	
+	
+
+	<table>
+		<tr ng-repeat="category in categoryCtrl.categories">
+			<td>{{ category.categoryName }}</td>
+			<td><a ng-click="categoryCtrl.viewCategory({category})"
+					class="btn btn-primary"> View Category</a></td>
+			
+		</tr>
+	</table>
+	
+</div>

@@ -1,0 +1,62 @@
+{{message}}<br/><br/>
+
+	<div>
+		<form class="form-horizontal" name="addProjectForm">
+		<div class="form-group">
+			<label for="projectName" class="col-sm-2 control-label">Project Name</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" placeholder="projectName"
+					name="projectName" ng-model="addProjectCtrl.projectDetails.projectName" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="projectDesc" class="col-sm-2 control-label">Project Description</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" placeholder="desc"
+					name="projectDesc" ng-model="addProjectCtrl.projectDetails.projectDesc" required/>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="projectDesc" class="col-sm-2 control-label">Project End Date</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" placeholder="yyyy-MM-dd HH:mm:ss"
+					name="endDate" datetime="yyyy-MM-dd HH:mm:ss" ng-model="addProjectCtrl.projectDetails.endDate" datetime-model="yyyy-MM-ddTHH:mm:ss" required  />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="projectDesc" class="col-sm-2 control-label">Project Amount</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" placeholder="projectAmount"
+					name="projectAmount" ng-model="addProjectCtrl.projectDetails.projectAmount" required/>
+			</div>
+		</div>
+		
+		<div class='form-group internal'>
+		  <label for="projectStatus" class="col-sm-2 control-label">Category Status</label>
+							<div class='col-sm-6'>
+								<select class='form-control' name="projectStatus" 
+									ng-model="addProjectCtrl.projectDetails.projectStatus" required>
+									<option>Active</option>
+									<option>Inactive</option>
+								</select>	
+							</div>
+		</div>
+		
+
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-2">
+				<button type="submit" ng-click="addProjectCtrl.add()"
+				ng-disabled="addProjectForm.endDate.$invalid ||
+				addProjectForm.projectName.$invalid ||
+				addProjectForm.projectDesc.$invalid ||
+				addProjectForm.projectAmount.$invalid"
+					class="btn btn-default">Add</button>
+			</div>
+		</div>
+
+	</form>
+</div>
+
+{{addProjectCtrl.message}}

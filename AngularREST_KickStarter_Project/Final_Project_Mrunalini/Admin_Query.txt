@@ -1,0 +1,9 @@
+For Admin:
+
+
+Row:
+mru	Mrunalini	108400	143	creator	Ms	Diwale	diwale.m@husky.neu.edu	3392358990
+
+
+Query:
+INSERT INTO `mydb`.`user_account` (`USER_NAME`, `NAME`, `PASSWORD`, `ID`, `role`, `title`, `last_name`, `email`, `phone`) VALUES ('mru', 'Mrunalini', '108400', '143', 'creator', 'Ms', 'Diwale', 'diwale.m@husky.neu.edu', '3392358990');

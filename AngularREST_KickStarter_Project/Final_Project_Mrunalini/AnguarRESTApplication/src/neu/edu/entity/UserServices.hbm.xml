@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:40:37 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.UserServices" table="user_services" catalog="mydb" optimistic-lock="version">
+        <id name="serviceId" type="java.lang.Integer">
+            <column name="service_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userProjects" class="neu.edu.entity.UserProjects" fetch="select">
+            <column name="project_id" not-null="true" />
+        </many-to-one>
+        <property name="serviceAmount" type="java.lang.Double">
+            <column name="service_amount" precision="22" scale="0" />
+        </property>
+        <property name="serviceDesc" type="string">
+            <column name="service_desc" length="70" />
+        </property>
+        <property name="serviceEndDate" type="timestamp">
+            <column name="service_endDate" length="19" />
+        </property>
+        <set name="donorServiceses" table="donor_services" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="service_id" not-null="true" />
+            </key>
+            <one-to-many class="neu.edu.entity.DonorServices" />
+        </set>
+    </class>
+</hibernate-mapping>

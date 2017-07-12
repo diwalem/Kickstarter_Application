@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:40:37 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.UserAccount" table="user_account" catalog="mydb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="USER_NAME" length="30" unique="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="100" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="45" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" length="45" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="45" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="45" />
+        </property>
+        <set name="userProjectses" table="user_projects" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="creator_id" />
+            </key>
+            <one-to-many class="neu.edu.entity.UserProjects" />
+        </set>
+        <set name="userProjects" table="user_project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="neu.edu.entity.UserProject" />
+        </set>
+        <one-to-one name="userInformation" class="neu.edu.entity.UserInformation"></one-to-one>
+        <set name="donorServiceses" table="donor_services" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="neu.edu.entity.DonorServices" />
+        </set>
+        <set name="userCategories" table="user_category" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="neu.edu.entity.UserCategory" />
+        </set>
+    </class>
+</hibernate-mapping>

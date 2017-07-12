@@ -1,0 +1,25 @@
+<div class="page-header" ng-init="serviceCtrl.init()">
+	{{serviceCtrl.message}}
+	
+	
+
+	<table>
+		<tr ng-repeat="service in serviceCtrl.services">
+			<td>Service No. {{ service.serviceId }}</td>
+			<td><a ng-click="serviceCtrl.viewService({service})"
+					class="btn btn-primary"> View Service Details</a></td>
+			
+		</tr>
+	</table>
+	
+	<br/>
+	<br/>
+	
+	<a ng-click="serviceCtrl.addService()" ng-disabled="serviceCtrl.disableAddServiceBtn()"
+					class="btn btn-primary" id="addServiceBtn">Add Services</a>
+					
+	
+	
+</div>
+
+ 

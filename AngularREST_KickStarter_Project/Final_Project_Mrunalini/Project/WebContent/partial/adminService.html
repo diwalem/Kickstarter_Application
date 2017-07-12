@@ -1,0 +1,17 @@
+<div class="page-header" ng-init="serviceCtrl.init()">
+	{{adminServiceCtrl.message}}
+	
+	
+
+	<table>
+		<tr ng-repeat="service in adminServiceCtrl.services">
+			<td>Service No. {{ service.serviceId }}</td>
+			<td><a ng-click="adminServiceCtrl.viewService({service})"
+					class="btn btn-primary"> View Service Details</a></td>
+			
+		</tr>
+	</table>
+
+</div>
+
+ 

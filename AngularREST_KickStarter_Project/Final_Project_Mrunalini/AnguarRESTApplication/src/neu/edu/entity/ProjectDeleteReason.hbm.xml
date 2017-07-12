@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:40:37 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.ProjectDeleteReason" table="project_delete_reason" catalog="mydb" optimistic-lock="version">
+        <id name="projectDeleteReasonId" type="java.lang.Integer">
+            <column name="project_delete_reason_Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userProjects" class="neu.edu.entity.UserProjects" fetch="select">
+            <column name="project_id" not-null="true" />
+        </many-to-one>
+        <property name="reason" type="string">
+            <column name="reason" length="100" />
+        </property>
+        <property name="comments" type="string">
+            <column name="comments" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

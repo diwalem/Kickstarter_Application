@@ -1,0 +1,17 @@
+<div class="page-header" ng-init="projectCtrl.init()">
+	{{projectCtrl.message}}
+	
+	
+
+	<table>
+		<tr ng-repeat="project in projectCtrl.projects">
+			<td>{{ project.projectName }}</td>
+			<td><a ng-click="projectCtrl.viewProject({project})"
+					class="btn btn-primary"> View Project Details</a></td>
+			
+		</tr>
+	</table>
+	
+</div>
+
+ 

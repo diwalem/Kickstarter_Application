@@ -1,0 +1,153 @@
+<
+<div class='container'>
+	<div class='panel panel-primary dialog-panel'>
+		<div class='panel-heading'>
+			<h5>Registration</h5>
+		</div>
+		<div class='panel-body'>
+			<form class='form-horizontal' role='form' name="registrationForm">
+				<div class="form-group">
+
+					<div ng-show="regCtrl.error" align="center"
+						class="col-sm-offset-2 col-sm-2 alert alert-danger">{{regCtrl.message}}</div>
+
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_title'>Name</label>
+					<div class='col-md-8'>
+						<div class='col-md-2'>
+							<div class='form-group internal'>
+								<select class='form-control' name='id_title'
+									ng-model="regCtrl.registration.title">
+									<option>Mr</option>
+									<option>Ms</option>
+									<option>Mrs</option>
+									<option>Miss</option>
+									<option>Dr</option>
+								</select>
+							</div>
+						</div>
+						<div class='col-md-3 indent-small'>
+							<div class='form-group internal'>
+								<input class='form-control' name='id_first_name'
+									ng-model="regCtrl.registration.firstName"
+									placeholder='First Name' type='text' required>
+							</div>
+						</div>
+						<div class='col-md-3 indent-small'>
+							<div class='form-group internal'>
+								<input class='form-control' name='id_last_name'
+									ng-model="regCtrl.registration.lastName"
+									placeholder='Last Name' type='text' required>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Username</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' name='id_username'
+									placeholder='Username' ng-model="regCtrl.registration.username"
+									type='text' required>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Password</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' name='id_password'
+									placeholder='Password' ng-model="regCtrl.registration.password"
+									type='password' required>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Contact</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' name='id_email' placeholder='E-mail'
+									ng-model="regCtrl.registration.email" type="email" required>
+							</div>
+						</div>
+						<div class='form-group internal'>
+							<div class='col-md-11'>
+							
+							
+							
+							 <input type="number" 
+			                   class="form-control" 
+			                   ng-minlength="10" 
+			                   ng-maxlength="10"  
+			                   name="id_phone" 
+			                   placeholder="xxxxxxxxxx" 
+			                   ng-model="regCtrl.registration.phone"
+			                   ng-required="true">
+			                   
+			            <span class="help-block" 
+			                  ng-show="registration.phone.$error.required || 
+			                           registration.phone.$error.number">
+			                           Valid phone number is required
+			            </span>
+			            <span class="help-block" 
+			                  ng-show="((registration.phone.$error.minlength ||
+			                           registration.phone.$error.maxlength) && 
+			                           registration.phone.$dirty) ">
+			                           phone number should be 10 digits
+			            </span>
+										
+										
+					
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Role</label>
+					<div class='col-md-6'>
+						
+						<div class='form-group internal'>
+							<div class='col-md-11'>
+								<select class='form-control' name='role'
+									ng-model="regCtrl.registration.role">
+									<option>creator</option>
+									<option>donor</option>
+								</select>	
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class='form-group'>
+					<div class='col-md-offset-4 col-md-3'>
+						<button class='btn btn-primary' ng-click="regCtrl.register()" 
+						ng-disabled="registrationForm.id_title.$invalid ||
+						 registrationForm.id_first_name.$invalid ||
+						 registrationForm.id_last_name.$invalid ||
+						 registrationForm.id_username.$invalid ||
+						 registrationForm.id_password.$invalid ||
+						 registrationForm.id_email.$invalid ||
+						 registrationForm.id_phone.$invalid"
+							type='submit'>Register</button>
+					</div>
+					<div class='col-md-3'>
+						<button class='btn btn-danger' ng-click="regCtrl.cancel()"
+							style='float: right' type='submit'>Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

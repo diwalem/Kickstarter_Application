@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:40:37 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.UserCategory" table="user_category" catalog="mydb" optimistic-lock="version">
+        <id name="categoryId" type="java.lang.Integer">
+            <column name="categoryID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userAccount" class="neu.edu.entity.UserAccount" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <property name="categoryName" type="string">
+            <column name="category_name" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="categoryDesc" type="string">
+            <column name="category_desc" length="70" />
+        </property>
+        <property name="categoryStatus" type="string">
+            <column name="category_status" length="45" />
+        </property>
+        <set name="userProjectses" table="user_projects" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="category_id" />
+            </key>
+            <one-to-many class="neu.edu.entity.UserProjects" />
+        </set>
+    </class>
+</hibernate-mapping>

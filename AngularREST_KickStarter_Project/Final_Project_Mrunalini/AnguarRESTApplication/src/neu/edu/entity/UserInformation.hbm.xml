@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:40:37 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.UserInformation" table="user_information" catalog="mydb" optimistic-lock="version">
+        <id name="userId" type="int">
+            <column name="user_id" />
+            <generator class="foreign">
+                <param name="property">userAccount</param>
+            </generator>
+        </id>
+        <one-to-one name="userAccount" class="neu.edu.entity.UserAccount" constrained="true"></one-to-one>
+        <property name="lastName" type="string">
+            <column name="last_name" length="45" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

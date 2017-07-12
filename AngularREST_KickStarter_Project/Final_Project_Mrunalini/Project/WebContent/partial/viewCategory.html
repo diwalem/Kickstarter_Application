@@ -1,0 +1,21 @@
+Category Name: {{categoryName}} <br/>
+Category Description: {{categoryDesc}} <br/>
+Category ID: {{categoryId}}<br/>
+Category Status: {{categoryStatus}}<br/><br/>
+
+
+
+
+
+ <a ng-click="viewCategoryCtrl.viewProject()"
+					class="btn btn-primary">View Project</a>
+					
+<a ng-click="viewCategoryCtrl.disableCategory()" id="disableCategory" ng-disabled="viewCategoryCtrl.hideDisableForOthers()"
+					class="btn btn-primary">Disable Category</a>
+					
+<a ng-click="viewCategoryCtrl.deleteCategory()" id="deleteCategory" ng-disabled="viewCategoryCtrl.hideDeleteForOthers()"
+					class="btn btn-primary">Delete Category</a>					
+		
+
+{{viewCategoryCtrl.message}}
+		

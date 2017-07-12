@@ -1,0 +1,22 @@
+<div class="page-header" ng-init="creatorProjectCtrl.init()">
+	{{creatorProjectCtrl.message}}
+	
+	
+
+	<table>
+		<tr ng-repeat="project in creatorProjectCtrl.projects">
+			<td>{{ project.projectName }}</td>
+			<td><a ng-click="creatorProjectCtrl.viewProject({project})"
+					class="btn btn-primary"> View Project Details</a></td>
+			
+		</tr>
+	</table>
+	<br/>
+	<br/>
+	
+	<a ng-click="creatorProjectCtrl.addProject()" id="addProjectButton" ng-disabled="creatorProjectCtrl.hideAddProjectIfCategoryInactive()"
+					class="btn btn-primary">Add Project</a>
+	
+</div>
+
+ 

@@ -1,0 +1,60 @@
+{{message}}<br/><br/>
+
+	<div>
+		<form class="form-horizontal" name="takeServicesForm">
+		<div class="form-group">
+			<label for="cardNo" class="col-sm-2 control-label">Card Number</label>
+			<div class="col-sm-6">
+				<input type="number" class="form-control" placeholder="cardNo"
+					name="cardNo" ng-minlength="16" 
+			                      ng-maxlength="16"  
+					ng-model="takeServiceCtrl.cardDetails.cardNo" required/>
+					<span class="help-block" 
+			                  ng-show="((takeServicesForm.cardNo.$error.minlength ||
+			                           takeServicesForm.cardNo.$error.maxlength) && 
+			                           takeServicesForm.cardNo.$dirty) ">
+			                           Card No should be 16 digits.
+			            </span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="cvv" class="col-sm-2 control-label">CVV</label>
+			<div class="col-sm-6">
+				<input type="number" class="form-control" placeholder="xxx"
+					name="cvv" ng-minlength="3" 
+			                      ng-maxlength="3"
+			                       ng-model="takeServiceCtrl.cardDetails.cvv" required/>
+			                       <span class="help-block" 
+			                  ng-show="((takeServicesForm.cvv.$error.minlength ||
+			                           takeServicesForm.cvv.$error.maxlength) && 
+			                           takeServicesForm.cvv.$dirty) ">
+			                           CVV  should be 3 digits.
+			            </span>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="expiry" class="col-sm-2 control-label">Expiry</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" placeholder="expiry"
+					name="expiry" ng-model="takeServiceCtrl.cardDetails.expiry" required/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-2">
+				<button type="submit" ng-click="takeServiceCtrl.pay()"
+				ng-disabled="takeServicesForm.cardNo.$invalid ||
+						 takeServicesForm.cvv.$invalid ||
+						 takeServicesForm.expiry.$invalid ||
+						 takeServicesForm.cvv.$error.minlength ||
+			             takeServicesForm.cvv.$error.maxlength ||
+			             takeServicesForm.cardNo.$error.minlength ||
+			             takeServicesForm.cardNo.$error.maxlength"
+					class="btn btn-default">Make Payment</button>
+			</div>
+		</div>
+
+	</form>
+</div>
+

@@ -1,0 +1,41 @@
+{{message}}<br/><br/>
+
+	<div>
+		<form class="form-horizontal" name="reasonForDeleteForm">
+		
+		<div class='form-group internal'>
+		  <label for="reason" class="col-sm-2 control-label">Reason</label>
+							<div class='col-sm-6'>
+								<select class='form-control' name="reason" 
+									ng-model="reasonForDeleteCtrl.reasonDetails.reason" required>
+									<option>Spam</option>
+									<option>Inactive</option>
+									<option>Other</option>
+								</select>	
+							</div>
+		</div>
+		
+		
+		<div class="form-group">
+			<label for="reason" class="col-sm-2 control-label">Reason</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" placeholder="comment"
+					name="comment" ng-model="reasonForDeleteCtrl.reasonDetails.comment" required />
+			</div>
+		</div>
+		
+		
+
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-2">
+				<button type="submit" ng-click="reasonForDeleteCtrl.deleteProject()"
+				ng-disabled="reasonForDeleteForm.reason.$invalid ||
+				reasonForDeleteForm.comment.$invalid"
+					class="btn btn-default">Save</button>
+			</div>
+		</div>
+
+	</form>
+</div>
+
+{{addProjectCtrl.message}}

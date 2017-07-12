@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2017 1:40:37 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.DonorServices" table="donor_services" catalog="mydb" optimistic-lock="version">
+        <id name="donorServicesId" type="java.lang.Integer">
+            <column name="donor_services_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userAccount" class="neu.edu.entity.UserAccount" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <many-to-one name="userServices" class="neu.edu.entity.UserServices" fetch="select">
+            <column name="service_id" not-null="true" />
+        </many-to-one>
+        <property name="cardNo" type="string">
+            <column name="card_no" length="16" />
+        </property>
+        <property name="cvv" type="java.lang.Integer">
+            <column name="cvv" />
+        </property>
+        <property name="expiry" type="string">
+            <column name="expiry" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
